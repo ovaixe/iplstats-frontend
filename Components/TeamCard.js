@@ -2,7 +2,7 @@ export default function TeamCard({ team }) {
   let winningSeasons = team.winning_seasons.split("-");
   winningSeasons = winningSeasons.filter((season) => season !== "#");
   return (
-    <div className="w-96 h-96 rounded-3xl overflow-hidden shadow-2xl flex flex-col justify-between">
+    <div className="w-96 h-96 rounded-3xl overflow-hidden shadow-2xl flex flex-col justify-between bg-[#2F3557]">
       <img
         className="w-full h-48"
         src={team.logo}
@@ -10,7 +10,7 @@ export default function TeamCard({ team }) {
       />
       <div className="flex flex-col items-center">
         <div className="px-6 py-4">
-          <div className="font-bold text-xl mb-2">{team.name}</div>
+          <div className="text-white font-bold text-xl mb-2">{team.name}</div>
         </div>
         <div className="px-6 pt-4 pb-2">
           {winningSeasons.map((season, index) => (

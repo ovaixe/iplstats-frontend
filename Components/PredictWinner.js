@@ -41,7 +41,7 @@ export default function PredictMatchWinner(props) {
   const [city, setCity] = useState(null);
   const [currentScore, setCurrentScore] = useState(null);
   const [ballsLeft, setBallsLeft] = useState(null);
-  const [wicketsLeft, setWicketsLeft] = useState(null);
+  const [wickets, setWickets] = useState(null);
   const [target, setTarget] = useState(null);
   const [predictButton, setPredictButton] = useState(false);
   const [winner, setWinner] = useState(null);
@@ -60,8 +60,8 @@ export default function PredictMatchWinner(props) {
       currentScore !== "" &&
       ballsLeft &&
       ballsLeft !== "" &&
-      wicketsLeft &&
-      wicketsLeft !== "" &&
+      wickets &&
+      wickets !== "" &&
       target &&
       target !== ""
     ) {
@@ -75,7 +75,7 @@ export default function PredictMatchWinner(props) {
     city,
     currentScore,
     ballsLeft,
-    wicketsLeft,
+    wickets,
     target,
   ]);
 
@@ -89,7 +89,7 @@ export default function PredictMatchWinner(props) {
         city: city,
         current_score: +currentScore,
         balls_left: +ballsLeft,
-        wickets_left: +wicketsLeft,
+        wickets: +wickets,
         target: +target,
       };
 
@@ -118,11 +118,14 @@ export default function PredictMatchWinner(props) {
         Predict The Match Winner
       </div>
       <div className="w-full h-auto flex flex-col p-5 pt-20 space-y-10 lg:flex-row lg:space-y-0 lg:justify-between lg:items-center">
-        <div className="w-full h-[50%] p-5 bg-[#93a3fa] rounded-3xl flex flex-col items-center lg:w-[45%]">
+        <div className="w-full h-[50%] p-5 pt-0 bg-[#93a3fa] rounded-3xl flex flex-col items-center lg:w-[45%]">
+          <div className="w-[70%] h-10 lg:w-[50%] lg:h-16 bg-[#d17243] rounded-b-3xl flex items-center justify-center">
+            <h1 className="text-sm text-white font-bold lg:text-lg lg:font-extrabold">Batting Team</h1>
+          </div>
           {battingTeam && battingTeam !== "Choose a team" ? (
             <img
               src={`teams/${battingTeam}.png`}
-              className="w-48 h-48 rounded-3xl"
+              className="w-68 h-48 rounded-3xl mt-5"
             ></img>
           ) : (
             <></>
@@ -156,11 +159,14 @@ export default function PredictMatchWinner(props) {
           </div>
         </div>
         <div className="lg:w-1 lg:h-96 lg:bg-[#93a3fa] lg:rounded-lg"></div>
-        <div className="w-full h-[50%] p-5 bg-[#93a3fa] rounded-3xl flex flex-col items-center lg:w-[45%]">
+        <div className="w-full h-[50%] p-5 pt-0 bg-[#93a3fa] rounded-3xl flex flex-col items-center lg:w-[45%]">
+          <div className="w-[70%] h-10 lg:w-[50%] lg:h-16 bg-[#d17243] rounded-b-3xl flex items-center justify-center">
+            <h1 className="text-sm text-white font-bold lg:text-lg lg:font-extrabold">Bowling Team</h1>
+          </div>
           {bowlingTeam && bowlingTeam !== "Choose a team" ? (
             <img
               src={`teams/${bowlingTeam}.png`}
-              className="w-48 h-48 rounded-3xl"
+              className="w-68 h-48 rounded-3xl mt-5"
             ></img>
           ) : (
             <></>
@@ -252,17 +258,17 @@ export default function PredictMatchWinner(props) {
             </div>
             <div>
               <label
-                htmlFor="wickets_left"
+                htmlFor="wickets"
                 className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
               >
-                Wickets Left
+                Wickets
               </label>
               <input
                 type="number"
-                id="wickets_left"
-                onChange={(e) => setWicketsLeft(e.target.value)}
+                id="wickets"
+                onChange={(e) => setWickets(e.target.value)}
                 className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                placeholder="Enter wickets left"
+                placeholder="Enter wickets"
                 pattern="[1-10]"
                 required
               />
@@ -298,19 +304,19 @@ export default function PredictMatchWinner(props) {
           </div>
         </form>
       </div>
-      <div className="w-full h-96 bg-[#4c516e] flex flex-col items-center justify-center">
+      <div className="w-full h-[500px] p-5 bg-[#4c516e] flex flex-col items-center justify-center lg:p-10">
         {winnerLoader ? (
           <Loader />
         ) : showWinner ? (
-          <div className="w-[70%] h-[70%] bg-[#85b570] rounded-3xl p-5 flex flex-col items-center justify-between space-y-5">
-            <div className="text-white text-xl font-bold lg:text-3xl lg:font-extrabold">
+          <div className="w-[80%] h-auto bg-[#85b570] rounded-3xl p-5 pt-0 flex flex-col items-center justify-between space-y-5">
+            <div className="w-full p-3 text-white text-xl font-bold bg-[#d17243] rounded-b-3xl flex justify-center lg:text-3xl lg:font-extrabold">
               Winning Team
             </div>
             <img
               src={`teams/${winner}.png`}
-              className="w-48 h-48 rounded-3xl"
+              className="w-68 h-48 rounded-3xl"
             ></img>
-            <div className="text-white text-xl font-bold lg:text-2xl">
+            <div className="text-white text-lg font-bold bg-[#2d8014] p-2 border-2 rounded-3xl flex justify-center lg:text-2xl">
               {winner}
             </div>
           </div>

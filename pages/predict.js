@@ -7,11 +7,13 @@ export default function PredictPage(props) {
   const [predictScore, setPredictScore] = useState(false);
 
   const handlePredictWinner = () => {
+    window.scrollTo(0, 500);
     setPredictScore(false)
     setPredictWinner(true)
   }
 
   const handlePredictScore = () => {
+    window.scrollTo(0, 500);
     setPredictWinner(false)
     setPredictScore(true)
   }
@@ -23,7 +25,7 @@ export default function PredictPage(props) {
           Predict the match outcomes
         </h1>
         <div className="w-full flex flex-col space-y-10 items-center lg:flex-row lg:space-y-0 lg:pt-20 lg:justify-between">
-          <div className="w-full h-auto rounded-3xl bg-[#bdaf55] p-5 flex flex-col items-center space-y-10 lg:w-[40%]">
+          <div className="w-full h-auto rounded-3xl bg-[#2F3557] p-5 flex flex-col items-center space-y-10 lg:w-[40%]">
             <h1 className="text-white text-lg font-bold lg:text-xl">
               Predict the match winner, based on ist inning results and current
               results of the match.
@@ -32,9 +34,9 @@ export default function PredictPage(props) {
               Predit Match Winner
             </button>
           </div>
-          <div className="w-full h-auto rounded-3xl bg-[#bdaf55] p-5 flex flex-col items-center space-y-10 lg:w-[40%]">
+          <div className="w-full h-auto rounded-3xl bg-[#2F3557] p-5 flex flex-col items-center space-y-10 lg:w-[40%]">
             <h1 className="text-white text-lg font-bold lg:text-xl">
-              Predict the current innings score, based on current results of the
+              Predict the current innings score, based on last 5 overs result and current results of the
               match.
             </h1>
             <button onClick={handlePredictScore} className="text-white text-lg font-bold border-4 border-yellow-500 hover:bg-yellow-500 rounded-lg p-2">

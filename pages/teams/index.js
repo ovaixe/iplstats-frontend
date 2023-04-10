@@ -15,8 +15,8 @@ export default function TeamsPage(props) {
   if (loading) return <Loader />;
   else
     return (
-      <div className="">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-y-10 p-10 mt-10 justify-items-center ">
+      <div className="bg-[#11235D]">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-y-10 p-10 pt-20 justify-items-center ">
           {teams.map((team, index) => (
             <Link key={index} href={`/teams/${team.id}`}>
               <TeamCard team={team} />

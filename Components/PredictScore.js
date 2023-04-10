@@ -21,8 +21,8 @@ export default function PredictScore(props) {
   const [bowlingTeam, setBowlingTeam] = useState(null);
   const [overs, setOvers] = useState(null);
   const [currentScore, setCurrentScore] = useState(null);
-  const [runsInPrev5, setRunsInPrev5] = useState(null);
-  const [wicketsInPrev5, setwicketsInPrev5] = useState(null);
+    const [runsInPrev5, setRunsInPrev5] = useState(null);
+    const [wicketsInPrev5, setwicketsInPrev5] = useState(null);
   const [wickets, setWickets] = useState(null);
 
   const [predictButton, setPredictButton] = useState(false);
@@ -69,9 +69,9 @@ export default function PredictScore(props) {
         batting_team: battingTeam,
         bowling_team: bowlingTeam,
         overs: +overs,
-        runs: +currentScore,
-        wickets_in_prev_5: +wicketsInPrev5,
+        current_score: +currentScore,
         runs_in_prev_5: +runsInPrev5,
+        wickets_in_prev_5: +wicketsInPrev5,
         wickets: +wickets,
       };
 
@@ -87,10 +87,7 @@ export default function PredictScore(props) {
       } else throw data.error;
     } catch (err) {
       setScoreLoader(false);
-      console.log(
-        "[SERVER ERROR][PredictScore:handlePredictWinner]: ",
-        err
-      );
+      console.log("[SERVER ERROR][PredictScore:handlePredictWinner]: ", err);
     }
   };
 
@@ -100,11 +97,16 @@ export default function PredictScore(props) {
         Predict The Score
       </div>
       <div className="w-full h-auto flex flex-col p-5 pt-20 space-y-10 lg:flex-row lg:space-y-0 lg:justify-between lg:items-center">
-        <div className="w-full h-[50%] p-5 bg-[#93a3fa] rounded-3xl flex flex-col items-center lg:w-[45%]">
+        <div className="w-full h-[50%] p-5 pt-0 bg-[#93a3fa] rounded-3xl flex flex-col items-center lg:w-[45%]">
+          <div className="w-[70%] h-10 lg:w-[50%] lg:h-16 bg-[#d17243] rounded-b-3xl flex items-center justify-center">
+            <h1 className="text-sm text-white font-bold lg:text-lg lg:font-extrabold">
+              Batting Team
+            </h1>
+          </div>
           {battingTeam && battingTeam !== "Choose a team" ? (
             <img
               src={`teams/${battingTeam}.png`}
-              className="w-48 h-48 rounded-3xl"
+              className="w-68 h-48 rounded-3xl mt-5"
             ></img>
           ) : (
             <></>
@@ -138,11 +140,16 @@ export default function PredictScore(props) {
           </div>
         </div>
         <div className="lg:w-1 lg:h-96 lg:bg-[#93a3fa] lg:rounded-lg"></div>
-        <div className="w-full h-[50%] p-5 bg-[#93a3fa] rounded-3xl flex flex-col items-center lg:w-[45%]">
+        <div className="w-full h-[50%] p-5 pt-0 bg-[#93a3fa] rounded-3xl flex flex-col items-center lg:w-[45%]">
+          <div className="w-[70%] h-10 lg:w-[50%] lg:h-16 bg-[#d17243] rounded-b-3xl flex items-center justify-center">
+            <h1 className="text-sm text-white font-bold lg:text-lg lg:font-extrabold">
+              Bowling Team
+            </h1>
+          </div>
           {bowlingTeam && bowlingTeam !== "Choose a team" ? (
             <img
               src={`teams/${bowlingTeam}.png`}
-              className="w-48 h-48 rounded-3xl"
+              className="w-68 h-48 rounded-3xl mt-5"
             ></img>
           ) : (
             <></>
@@ -276,15 +283,15 @@ export default function PredictScore(props) {
           </div>
         </form>
       </div>
-      <div className="w-full h-96 bg-[#4c516e] flex flex-col items-center justify-center">
+      <div className="w-full h-96 p-5 lg:p-10 bg-[#4c516e] flex flex-col items-center justify-center">
         {scoreLoader ? (
           <Loader />
         ) : showScore ? (
-          <div className="w-[70%] h-[70%] bg-[#85b570] rounded-3xl p-5 flex flex-col items-center justify-between">
-            <div className="text-white text-xl font-bold lg:text-3xl lg:font-extrabold">
+          <div className="w-[70%] lg:w-[50%] h-[50%] lg:h-48 bg-[#85b570] rounded-3xl p-5 pt-0 flex flex-col items-center justify-between">
+            <div className="w-full p-2 text-white text-xl font-bold rounded-b-3xl bg-[#d17243] flex items-center justify-center lg:text-3xl lg:font-extrabold">
               Predicted Score
             </div>
-            <div className="text-white text-xl font-bold lg:text-2xl">
+            <div className="text-white text-xl font-bold bg-[#2d8014] py-2 px-5 border-2 rounded-xl lg:text-2xl">
               {score}
             </div>
           </div>
