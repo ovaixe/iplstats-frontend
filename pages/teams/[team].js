@@ -35,12 +35,18 @@ export default function TeamPage(props) {
               <div className="text-white text-lg lg:text-3xl font-bold p-5">
                 {team.name}
               </div>
-              <div className="flex flex-row items-center pl-4">
-                <img src="https://www.iplt20.com/assets/images/team-trophy.png"></img>
-                <div className="w-auto h-auto bg-[#11295C] rounded-r-3xl text-[#EAB305] text-sm font-bold p-3">
-                  {winningSeasons.map((season, index, array) => index < array.length-1 ? season + ', ' : season)}
+              {winningSeasons.length ? (
+                <div className="flex flex-row items-center pl-4">
+                  <img src="https://www.iplt20.com/assets/images/team-trophy.png"></img>
+                  <div className="w-auto h-auto bg-[#11295C] rounded-r-3xl text-[#EAB305] text-sm font-bold p-3">
+                    {winningSeasons.map((season, index, array) =>
+                      index < array.length - 1 ? season + ", " : season
+                    )}
+                  </div>
                 </div>
-              </div>
+              ) : (
+                <></>
+              )}
             </div>
           </div>
           <div className="h-90 w-1 bg-gray-500 rounded-2xl"></div>

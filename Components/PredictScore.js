@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import config from "../config/config.json";
 import axios from "axios";
 import Loader from "./Loader";
+import Error from "./Error";
 
 export default function PredictScore(props) {
   const teams = [
@@ -21,12 +22,13 @@ export default function PredictScore(props) {
   const [bowlingTeam, setBowlingTeam] = useState(null);
   const [overs, setOvers] = useState(null);
   const [currentScore, setCurrentScore] = useState(null);
-    const [runsInPrev5, setRunsInPrev5] = useState(null);
-    const [wicketsInPrev5, setwicketsInPrev5] = useState(null);
+  const [runsInPrev5, setRunsInPrev5] = useState(null);
+  const [wicketsInPrev5, setwicketsInPrev5] = useState(null);
   const [wickets, setWickets] = useState(null);
 
   const [predictButton, setPredictButton] = useState(false);
   const [score, setScore] = useState(null);
+  const [error, setError] = useState(false);
   const [showScore, setShowScore] = useState(false);
   const [scoreLoader, setScoreLoader] = useState(false);
 
@@ -86,6 +88,7 @@ export default function PredictScore(props) {
         setShowScore(true);
       } else throw data.error;
     } catch (err) {
+      setError(true);
       setScoreLoader(false);
       console.log("[SERVER ERROR][PredictScore:handlePredictWinner]: ", err);
     }
@@ -295,6 +298,8 @@ export default function PredictScore(props) {
               {score}
             </div>
           </div>
+        ) : error ? (
+          <Error />
         ) : (
           <></>
         )}

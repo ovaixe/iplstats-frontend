@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import config from "../config/config.json";
 import axios from "axios";
 import Loader from "./Loader";
+import Error from "./Error";
 
 export default function PredictMatchWinner(props) {
   const teams = [
@@ -45,6 +46,7 @@ export default function PredictMatchWinner(props) {
   const [target, setTarget] = useState(null);
   const [predictButton, setPredictButton] = useState(false);
   const [winner, setWinner] = useState(null);
+  const [error, setError] = useState(false);
   const [showWinner, setShowWinner] = useState(false);
   const [winnerLoader, setWinnerLoader] = useState(false);
 
@@ -105,6 +107,7 @@ export default function PredictMatchWinner(props) {
       } else throw data.error;
     } catch (err) {
       setWinnerLoader(false);
+      setError(true);
       console.log(
         "[SERVER ERROR][PredictMatchWinner:handlePredictWinner]: ",
         err
@@ -120,7 +123,9 @@ export default function PredictMatchWinner(props) {
       <div className="w-full h-auto flex flex-col p-5 pt-20 space-y-10 lg:flex-row lg:space-y-0 lg:justify-between lg:items-center">
         <div className="w-full h-[50%] p-5 pt-0 bg-[#93a3fa] rounded-3xl flex flex-col items-center lg:w-[45%]">
           <div className="w-[70%] h-10 lg:w-[50%] lg:h-16 bg-[#d17243] rounded-b-3xl flex items-center justify-center">
-            <h1 className="text-sm text-white font-bold lg:text-lg lg:font-extrabold">Batting Team</h1>
+            <h1 className="text-sm text-white font-bold lg:text-lg lg:font-extrabold">
+              Batting Team
+            </h1>
           </div>
           {battingTeam && battingTeam !== "Choose a team" ? (
             <img
@@ -161,7 +166,9 @@ export default function PredictMatchWinner(props) {
         <div className="lg:w-1 lg:h-96 lg:bg-[#93a3fa] lg:rounded-lg"></div>
         <div className="w-full h-[50%] p-5 pt-0 bg-[#93a3fa] rounded-3xl flex flex-col items-center lg:w-[45%]">
           <div className="w-[70%] h-10 lg:w-[50%] lg:h-16 bg-[#d17243] rounded-b-3xl flex items-center justify-center">
-            <h1 className="text-sm text-white font-bold lg:text-lg lg:font-extrabold">Bowling Team</h1>
+            <h1 className="text-sm text-white font-bold lg:text-lg lg:font-extrabold">
+              Bowling Team
+            </h1>
           </div>
           {bowlingTeam && bowlingTeam !== "Choose a team" ? (
             <img
@@ -320,9 +327,9 @@ export default function PredictMatchWinner(props) {
               {winner}
             </div>
           </div>
-        ) : (
-          <></>
-        )}
+        ) : error ? (
+          <Error />
+        ) : <></>}
       </div>
     </div>
   );
