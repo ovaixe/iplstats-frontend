@@ -1,5 +1,5 @@
-import PredictMatchWinner from "@/components/PredictWinner";
-import PredictScore from "@/components/PredictScore";
+import PredictMatchWinner from "@/componentss/PredictWinner";
+import PredictScore from "@/componentss/PredictScore";
 import { useState } from "react";
 
 export default function PredictPage(props) {

@@ -1,8 +1,8 @@
 import { useState } from "react";
-import StatsResult from "@/components/StatsResult";
+import StatsResult from "@/componentss/StatsResult";
 import axios from "axios";
-import Loader from "@/components/Loader";
-import Error from "../components/Error";
+import Loader from "@/componentss/Loader";
+import Error from "../componentss/Error";
 import config from "../config/config.json";
 
 export default function StatsPage(props) {
