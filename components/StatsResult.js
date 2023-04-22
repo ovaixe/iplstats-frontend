@@ -17,7 +17,7 @@ export default function StatsResult({ data, filter }) {
                 Player name
               </th>
               <th scope="col" className="px-6 py-3">
-                {filter ? filter.includes("fours") ? "Fours" : "Sixes" : null}
+                Count
               </th>
             </tr>
           </thead>
