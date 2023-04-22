@@ -9,7 +9,7 @@ export default function NavBar(props) {
             <div className="w-[60%] flex items-center justify-center space-x-10 text-white text-lg">
                 <Link href={'/'} className="">HOME</Link>
                 <Link href={'/teams'} className="">TEAMS</Link>
-                <Link href={'/matches'} className="">MATCHES</Link>
+                {/* <Link href={'/matches'} className="">MATCHES</Link> */}
                 <Link href={'/stats'} className="">STATS</Link>
                 <Link href={'/predict'} className="">PREDICT</Link>
             </div>

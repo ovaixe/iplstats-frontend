@@ -1,5 +1,5 @@
-import PredictMatchWinner from "@/Components/PredictWinner";
-import PredictScore from "@/Components/PredictScore";
+import PredictMatchWinner from "@/components/PredictWinner";
+import PredictScore from "@/components/PredictScore";
 import { useState } from "react";
 
 export default function PredictPage(props) {
@@ -8,15 +8,15 @@ export default function PredictPage(props) {
 
   const handlePredictWinner = () => {
     window.scrollTo(0, 500);
-    setPredictScore(false)
-    setPredictWinner(true)
-  }
+    setPredictScore(false);
+    setPredictWinner(true);
+  };
 
   const handlePredictScore = () => {
     window.scrollTo(0, 500);
-    setPredictWinner(false)
-    setPredictScore(true)
-  }
+    setPredictWinner(false);
+    setPredictScore(true);
+  };
 
   return (
     <>
@@ -30,23 +30,29 @@ export default function PredictPage(props) {
               Predict the match winner, based on ist inning results and current
               results of the match.
             </h1>
-            <button onClick={handlePredictWinner} className="text-white text-lg font-bold border-4 border-yellow-500 hover:bg-yellow-500 rounded-lg p-2">
+            <button
+              onClick={handlePredictWinner}
+              className="text-white text-lg font-bold border-4 border-yellow-500 hover:bg-yellow-500 rounded-lg p-2"
+            >
               Predit Match Winner
             </button>
           </div>
           <div className="w-full h-auto rounded-3xl bg-[#2F3557] p-5 flex flex-col items-center space-y-10 lg:w-[40%]">
             <h1 className="text-white text-lg font-bold lg:text-xl">
-              Predict the current innings score, based on last 5 overs result and current results of the
-              match.
+              Predict the current innings score, based on last 5 overs result
+              and current results of the match.
             </h1>
-            <button onClick={handlePredictScore} className="text-white text-lg font-bold border-4 border-yellow-500 hover:bg-yellow-500 rounded-lg p-2">
+            <button
+              onClick={handlePredictScore}
+              className="text-white text-lg font-bold border-4 border-yellow-500 hover:bg-yellow-500 rounded-lg p-2"
+            >
               Predit Score
             </button>
           </div>
         </div>
       </div>
       {predictWinner ? <PredictMatchWinner /> : <></>}
-      {predictScore ? (<PredictScore />) : <></>}
+      {predictScore ? <PredictScore /> : <></>}
     </>
   );
 }

@@ -329,7 +329,9 @@ export default function PredictMatchWinner(props) {
           </div>
         ) : error ? (
           <Error />
-        ) : <></>}
+        ) : (
+          <></>
+        )}
       </div>
     </div>
   );

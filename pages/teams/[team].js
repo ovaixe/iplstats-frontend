@@ -1,4 +1,4 @@
-import Loader from "@/Components/Loader";
+import Loader from "@/components/Loader";
 import { useEffect, useState } from "react";
 import { getTeam } from "@/utils/dataFetch";
 import { useRouter } from "next/router";

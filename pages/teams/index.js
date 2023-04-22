@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
-import TeamCard from "@/Components/TeamCard";
-import Loader from "@/Components/Loader";
+import TeamCard from "@/components/TeamCard";
+import Loader from "@/components/Loader";
 import { getAllTeams } from "@/utils/dataFetch";
 import Link from "next/link";
 
