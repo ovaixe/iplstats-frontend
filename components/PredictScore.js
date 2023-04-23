@@ -95,7 +95,7 @@ export default function PredictScore(props) {
   };
 
   return (
-    <div className="w-full h-auto bg-[#2f3557]">
+    <div className="w-full h-auto">
       <div className="text-[#BDAE55] text-xl font-bold flex justify-center pt-10 lg:text-3xl lg:font-extrabold">
         Predict The Score
       </div>
@@ -186,7 +186,7 @@ export default function PredictScore(props) {
           </div>
         </div>
       </div>
-      <div className="w-full h-auto bg-[#4e5681]">
+      <div className="w-full h-auto">
         <form className="p-5 lg:p-20 lg:mx-20">
           <div className="grid gap-6 mb-6 md:grid-cols-2">
             <div>
@@ -286,7 +286,7 @@ export default function PredictScore(props) {
           </div>
         </form>
       </div>
-      <div className="w-full h-96 p-5 lg:p-10 bg-[#4c516e] flex flex-col items-center justify-center">
+      <div className="w-full h-96 p-5 lg:p-10 flex flex-col items-center justify-center">
         {scoreLoader ? (
           <Loader />
         ) : showScore ? (

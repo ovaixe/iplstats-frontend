@@ -74,7 +74,7 @@ export default function StatsPage(props) {
   };
 
   return (
-    <div className="p-10 bg-[#2F3557] flex flex-col">
+    <div className="p-10 flex flex-col">
       <div className="flex flex-col lg:flex-row justify-between items-center space-y-10 lg:space-y-0">
         <div className="flex flex-col space-y-5 items-center">
           <label className="block text-lg font-medium text-white lg:font-bold">

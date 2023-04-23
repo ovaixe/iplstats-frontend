@@ -116,7 +116,7 @@ export default function PredictMatchWinner(props) {
   };
 
   return (
-    <div className="w-full h-auto bg-[#2f3557]">
+    <div className="w-full h-auto">
       <div className="text-[#BDAE55] text-xl font-bold flex justify-center pt-10 lg:text-3xl lg:font-extrabold">
         Predict The Match Winner
       </div>
@@ -207,7 +207,7 @@ export default function PredictMatchWinner(props) {
           </div>
         </div>
       </div>
-      <div className="w-full h-auto bg-[#4e5681]">
+      <div className="w-full h-auto">
         <form className="p-5 lg:p-20 lg:mx-20">
           <div className="grid gap-6 mb-6 md:grid-cols-2">
             <div>
@@ -311,7 +311,7 @@ export default function PredictMatchWinner(props) {
           </div>
         </form>
       </div>
-      <div className="w-full h-[500px] p-5 bg-[#4c516e] flex flex-col items-center justify-center lg:p-10">
+      <div className="w-full h-[500px] p-5 flex flex-col items-center justify-center lg:p-10">
         {winnerLoader ? (
           <Loader />
         ) : showWinner ? (

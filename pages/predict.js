@@ -20,7 +20,7 @@ export default function PredictPage(props) {
 
   return (
     <>
-      <div className="w-full h-auto bg-[#031A45] flex flex-col items-center justify-around p-5 pt-10 space-y-10 lg:p-10">
+      <div className="w-full h-auto flex flex-col items-center justify-around p-5 pt-10 space-y-10 lg:p-10">
         <h1 className="text-yellow-500 text-2xl font-extrabold lg:text-3xl">
           Predict the match outcomes
         </h1>

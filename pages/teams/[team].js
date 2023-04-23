@@ -75,7 +75,7 @@ export default function TeamPage(props) {
             </div>
           </div>
         </div>
-        <div className="w-full h-96 bg-[#2F3557]"></div>
+        <div className="w-full h-96"></div>
       </div>
     );
 }
