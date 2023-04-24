@@ -1,4 +1,5 @@
 import React from "react";
+// import "tailwindcss/tailwind.css";
 
 class ErrorBoundary extends React.Component {
   constructor(props) {
@@ -22,8 +23,8 @@ class ErrorBoundary extends React.Component {
   render() {
     if (this.state.hasError) {
       return (
-        <div>
-          <h2>Oops, there is an error!</h2>
+        <div className="text-white">
+          <h2 className="text-white">Oops, there is an error!</h2>
           <button
             type="button"
             onClick={() => this.setState({ hasError: false })}
