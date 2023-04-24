@@ -2,7 +2,7 @@ export default function TeamCard({ team }) {
   let winningSeasons = team.winning_seasons.split("-");
   winningSeasons = winningSeasons.filter((season) => season !== "#");
   return (
-    <div className="w-96 h-96 rounded-3xl overflow-hidden shadow-2xl flex flex-col justify-between bg-[#2F3557]">
+    <div className="rounded-3xl overflow-hidden shadow-2xl flex flex-col justify-between bg-[#2F3557]">
       <img
         className="w-full h-48"
         src={team.logo}

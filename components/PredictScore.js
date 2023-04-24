@@ -99,9 +99,9 @@ export default function PredictScore(props) {
       <div className="text-[#BDAE55] text-xl font-bold flex justify-center pt-10 lg:text-3xl lg:font-extrabold">
         Predict The Score
       </div>
-      <div className="w-full h-auto flex flex-col p-5 pt-20 space-y-10 lg:flex-row lg:space-y-0 lg:justify-between lg:items-center">
-        <div className="w-full h-[50%] lg:mx-10 p-5 pt-0 bg-[#93a3fa] rounded-3xl flex flex-col items-center lg:w-[40%]">
-          <div className="w-[70%] h-10 lg:w-[50%] lg:h-16 bg-[#d17243] rounded-b-3xl flex items-center justify-center">
+      <div className="w-full h-auto flex flex-col items-center p-5 pt-20 space-y-10 lg:flex-row lg:space-y-0 lg:justify-between lg:items-center">
+        <div className="w-[80%] h-[50%] lg:mx-10 p-5 pt-0 bg-gradient-to-r from-blue-300 via-blue-400 to-blue-500 rounded-3xl flex flex-col items-center lg:w-[40%]">
+          <div className="w-[70%] h-10 lg:w-[50%] lg:h-16 bg-gradient-to-r from-amber-300 via-amber-400 to-amber-500 rounded-b-3xl flex items-center justify-center">
             <h1 className="text-sm text-white font-bold lg:text-lg lg:font-extrabold">
               Batting Team
             </h1>
@@ -143,8 +143,8 @@ export default function PredictScore(props) {
           </div>
         </div>
         <div className="lg:w-1 lg:h-96 lg:bg-[#93a3fa] lg:rounded-lg"></div>
-        <div className="w-full h-[50%] lg:mx-10 p-5 pt-0 bg-[#93a3fa] rounded-3xl flex flex-col items-center lg:w-[40%]">
-          <div className="w-[70%] h-10 lg:w-[50%] lg:h-16 bg-[#d17243] rounded-b-3xl flex items-center justify-center">
+        <div className="w-[80%] h-[50%] lg:mx-10 p-5 pt-0 bg-gradient-to-r from-blue-300 via-blue-400 to-blue-500 rounded-3xl flex flex-col items-center lg:w-[40%]">
+          <div className="w-[70%] h-10 lg:w-[50%] lg:h-16 bg-gradient-to-r from-amber-300 via-amber-400 to-amber-500 rounded-b-3xl flex items-center justify-center">
             <h1 className="text-sm text-white font-bold lg:text-lg lg:font-extrabold">
               Bowling Team
             </h1>
@@ -290,8 +290,8 @@ export default function PredictScore(props) {
         {scoreLoader ? (
           <Loader />
         ) : showScore ? (
-          <div className="w-[70%] lg:w-[50%] h-[50%] lg:h-48 bg-[#85b570] rounded-3xl p-5 pt-0 flex flex-col items-center justify-between">
-            <div className="w-full p-2 text-white text-xl font-bold rounded-b-3xl bg-[#d17243] flex items-center justify-center lg:text-3xl lg:font-extrabold">
+          <div className="w-[70%] lg:w-[50%] h-[50%] lg:h-48 bg-gradient-to-r from-green-300 via-green-400 to-green-500 rounded-3xl p-5 pt-0 flex flex-col items-center justify-between">
+            <div className="w-full p-2 text-white text-xl font-bold rounded-b-3xl bg-gradient-to-r from-amber-300 via-amber-400 to-amber-500 flex items-center justify-center lg:text-3xl lg:font-extrabold">
               Predicted Score
             </div>
             <div className="text-white text-xl font-bold bg-[#2d8014] py-2 px-5 border-2 rounded-xl lg:text-2xl">
