@@ -67,13 +67,17 @@ export default function StatsPage(props) {
         setLoading(false);
         setShowData(true);
         window.scrollTo({
-          top: resultView.current.offsetTop,
-          behavior: 'smooth',
+          top: resultView.current.offsetTop - 70,
+          behavior: "smooth",
         });
       } else throw data.error;
     } catch (err) {
       setLoading(false);
       setError(true);
+      window.scrollTo({
+        top: resultView.current.offsetTop - 70,
+        behavior: "smooth",
+      });
       console.log("[SERVER ERROR][StatsPage:handleButton]: ", err);
     }
   };
@@ -150,7 +154,9 @@ export default function StatsPage(props) {
             disabled={!filter}
             onClick={handleButton}
             className={`text-white ${
-              !filter ? "bg-gray-500" : "bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 hover:bg-blue-800"
+              !filter
+                ? "bg-gray-500"
+                : "bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 hover:bg-blue-800"
             } focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center`}
           >
             Get Stats

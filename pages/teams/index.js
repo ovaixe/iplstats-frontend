@@ -18,7 +18,7 @@ export default function TeamsPage(props) {
       <div className="">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-y-10 p-10 pt-20 justify-items-center ">
           {teams.map((team, index) => (
-            <Link key={index} href={`/teams/${team.id}`}>
+            <Link key={index} href={`/teams/${team.id}`} className="w-[90%] h-[90%]">
               <TeamCard team={team} />
             </Link>
           ))}
