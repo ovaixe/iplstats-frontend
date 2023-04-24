@@ -1,21 +1,28 @@
 import PredictMatchWinner from "@/components/PredictWinner";
 import PredictScore from "@/components/PredictScore";
-import { useState } from "react";
+import { useRef, useState } from "react";
 
 export default function PredictPage(props) {
+  const view = useRef(null);
   const [predictWinner, setPredictWinner] = useState(false);
   const [predictScore, setPredictScore] = useState(false);
 
   const handlePredictWinner = () => {
-    window.scrollTo(0, 500);
     setPredictScore(false);
     setPredictWinner(true);
+    window.scrollTo({
+      top: view.current.offsetTop - 70,
+      behavior: "smooth",
+    });
   };
 
   const handlePredictScore = () => {
-    window.scrollTo(0, 500);
     setPredictWinner(false);
     setPredictScore(true);
+    window.scrollTo({
+      top: view.current.offsetTop - 70,
+      behavior: "smooth",
+    });
   };
 
   return (
@@ -51,8 +58,10 @@ export default function PredictPage(props) {
           </div>
         </div>
       </div>
-      {predictWinner ? <PredictMatchWinner /> : <></>}
-      {predictScore ? <PredictScore /> : <></>}
+      <div ref={view}>
+        {predictWinner ? <PredictMatchWinner /> : <></>}
+        {predictScore ? <PredictScore /> : <></>}
+      </div>
     </>
   );
 }

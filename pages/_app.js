@@ -1,6 +1,10 @@
 import "@/styles/globals.css";
 import Head from "next/head";
 import NavBar from "@/components/NavBar";
+import ErrorBoundary from "@/components/ErrorBoundary";
+import { Comfortaa } from "next/font/google";
+
+const comfortaa = Comfortaa({ subsets: ["latin"] });
 
 export default function App({ Component, pageProps }) {
   return (
@@ -11,8 +15,12 @@ export default function App({ Component, pageProps }) {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/ipl.ico" />
       </Head>
-      <NavBar />
-      <Component {...pageProps} />
+      <main className={comfortaa.className}>
+        <ErrorBoundary>
+          <NavBar />
+          <Component {...pageProps} />
+        </ErrorBoundary>
+      </main>
     </>
   );
 }

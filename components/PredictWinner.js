@@ -121,7 +121,7 @@ export default function PredictMatchWinner(props) {
         Predict The Match Winner
       </div>
       <div className="w-full h-auto flex flex-col p-5 pt-20 space-y-10 lg:flex-row lg:space-y-0 lg:justify-between lg:items-center">
-        <div className="w-full h-[50%] p-5 pt-0 bg-[#93a3fa] rounded-3xl flex flex-col items-center lg:w-[45%]">
+        <div className="w-full h-[50%] p-5 lg:mx-10 pt-0 bg-[#93a3fa] rounded-3xl flex flex-col items-center lg:w-[40%]">
           <div className="w-[70%] h-10 lg:w-[50%] lg:h-16 bg-[#d17243] rounded-b-3xl flex items-center justify-center">
             <h1 className="text-sm text-white font-bold lg:text-lg lg:font-extrabold">
               Batting Team
@@ -164,7 +164,7 @@ export default function PredictMatchWinner(props) {
           </div>
         </div>
         <div className="lg:w-1 lg:h-96 lg:bg-[#93a3fa] lg:rounded-lg"></div>
-        <div className="w-full h-[50%] p-5 pt-0 bg-[#93a3fa] rounded-3xl flex flex-col items-center lg:w-[45%]">
+        <div className="w-full h-[50%] lg:mx-10 p-5 pt-0 bg-[#93a3fa] rounded-3xl flex flex-col items-center lg:w-[40%]">
           <div className="w-[70%] h-10 lg:w-[50%] lg:h-16 bg-[#d17243] rounded-b-3xl flex items-center justify-center">
             <h1 className="text-sm text-white font-bold lg:text-lg lg:font-extrabold">
               Bowling Team
@@ -207,8 +207,8 @@ export default function PredictMatchWinner(props) {
           </div>
         </div>
       </div>
-      <div className="w-full h-auto">
-        <form className="p-5 lg:p-20 lg:mx-20">
+      <div className="w-full h-auto flex justify-center">
+        <form className="p-5 lg:p-20 lg:mx-20 w-[80%]">
           <div className="grid gap-6 mb-6 md:grid-cols-2">
             <div>
               <label
@@ -304,7 +304,7 @@ export default function PredictMatchWinner(props) {
               onClick={handlePredictWinner}
               className={`text-white ${
                 !predictButton ? "bg-gray-500" : "bg-blue-700 hover:bg-blue-800"
-              } focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center`}
+              } focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-[70%] sm:w-auto px-5 py-2.5 text-center`}
             >
               Predict Winner
             </button>
@@ -335,21 +335,4 @@ export default function PredictMatchWinner(props) {
       </div>
     </div>
   );
-}
-
-function getTeamName(team) {
-  const names = {
-    CSK: "Chennai Super Kings",
-    DC: "Delhi Capitals",
-    GT: "Gujarat Titans",
-    PK: "Punjab Kings",
-    KKR: "Kolkata Knight Riders",
-    MI: "Mumbai Indians",
-    RR: "Rajasthan Royals",
-    RCB: "Royal Challengers Bangalore",
-    SH: "Sunrisers Hyderabad",
-    LSG: "Lucknow Super Giants",
-  };
-
-  return names[team];
 }

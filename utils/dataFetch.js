@@ -1,5 +1,6 @@
 import axios from "axios";
 import config from "../config/config.json";
+import ErrorBoundary from "@/components/ErrorBoundary";
 
 export async function getAllTeams(setTeams, setLoading) {
   try {
@@ -10,6 +11,7 @@ export async function getAllTeams(setTeams, setLoading) {
     } else throw response.data.error;
   } catch (err) {
     setLoading(false);
+    ErrorBoundary.getDerivedStateFromError(err);
     console.log("[SERVER ERROR][dataFetch.js:getAllTeams]: ", err);
   }
 }

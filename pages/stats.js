@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useRef, useState } from "react";
 import StatsResult from "@/components/StatsResult";
 import axios from "axios";
 import Loader from "@/components/Loader";
@@ -44,6 +44,7 @@ export default function StatsPage(props) {
     { name: "Most Centuries", value: "most-centuries" },
   ];
 
+  const resultView = useRef(null);
   const [filter, setFilter] = useState(null);
   const [season, setSeason] = useState("alltime");
   const [team, setTeam] = useState("allteams");
@@ -65,6 +66,10 @@ export default function StatsPage(props) {
         setData(data.data);
         setLoading(false);
         setShowData(true);
+        window.scrollTo({
+          top: resultView.current.offsetTop,
+          behavior: 'smooth',
+        });
       } else throw data.error;
     } catch (err) {
       setLoading(false);
@@ -76,7 +81,7 @@ export default function StatsPage(props) {
   return (
     <div className="p-10 flex flex-col">
       <div className="flex flex-col lg:flex-row justify-between items-center space-y-10 lg:space-y-0">
-        <div className="flex flex-col space-y-5 items-center">
+        <div className="w-[80%] lg:w-[20%] flex flex-col space-y-2 items-center">
           <label className="block text-lg font-medium text-white lg:font-bold">
             Filter
           </label>
@@ -97,7 +102,7 @@ export default function StatsPage(props) {
             ))}
           </select>
         </div>
-        <div className="flex flex-col space-y-5 items-center">
+        <div className="w-[80%] lg:w-[20%] flex flex-col space-y-2 items-center">
           <label className="block text-lg font-medium text-white lg:font-bold">
             Season
           </label>
@@ -118,7 +123,7 @@ export default function StatsPage(props) {
             ))}
           </select>
         </div>
-        <div className="flex flex-col space-y-5 items-center">
+        <div className="w-[80%] lg:w-[20%] flex flex-col space-y-2 items-center">
           <label className="block text-lg font-medium text-white lg:font-bold">
             Team
           </label>
@@ -152,7 +157,7 @@ export default function StatsPage(props) {
           </button>
         </div>
       </div>
-      <div className="mt-[100px] flex flex-col items-center">
+      <div className="flex flex-col items-center" ref={resultView}>
         {showData ? (
           loading ? (
             <Loader />
