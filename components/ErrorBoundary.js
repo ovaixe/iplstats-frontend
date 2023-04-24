@@ -23,10 +23,10 @@ class ErrorBoundary extends React.Component {
     if (this.state.hasError) {
       return (
         <div className="text-white mt-20 w-full flex flex-col items-center justify-center space-y-5">
-          <h2 className="">oops, there is an error!</h2>
+          <h2 className="text-xl font-black">oops, there is an error!</h2>
           <button
             type="button"
-            className="text-white w-[30%] bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2"
+            className="text-white w-[35%] lg:w-[10%] bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-medium rounded-lg text-sm px-3 py-2 text-center mr-2 mb-2"
             onClick={() => this.setState({ hasError: false })}
           >
             Try again ?
