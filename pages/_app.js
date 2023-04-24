@@ -16,8 +16,8 @@ export default function App({ Component, pageProps }) {
         <link rel="icon" href="/ipl.ico" />
       </Head>
       <main className={comfortaa.className}>
+        <NavBar />
         <ErrorBoundary>
-          <NavBar />
           <Component {...pageProps} />
         </ErrorBoundary>
       </main>

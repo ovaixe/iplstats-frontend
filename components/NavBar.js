@@ -2,7 +2,7 @@ import Link from "next/link";
 
 export default function NavBar(props) {
   return (
-    <div className="sticky top-0 z-50 w-full h-20 bg-[#1B458C] flex flex-row justify-between px-2 lg:px-5">
+    <div className="sticky top-0 z-50 w-full h-20 bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 flex flex-row justify-between px-2 lg:px-5">
       <div className="w-[20%]">
         <img src="/nav-logo.png" className="w-20 h-20 object-contain"></img>
       </div>
