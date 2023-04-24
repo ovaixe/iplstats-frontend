@@ -48,7 +48,7 @@ export default function StatsPage(props) {
   const [filter, setFilter] = useState(null);
   const [season, setSeason] = useState("alltime");
   const [team, setTeam] = useState("allteams");
-  const [data, setData] = useState([]);
+  const [data, setData] = useState(null);
   const [showData, setShowData] = useState(false);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(false);
@@ -157,7 +157,7 @@ export default function StatsPage(props) {
           </button>
         </div>
       </div>
-      <div className="flex flex-col items-center" ref={resultView}>
+      <div className="mt-10 flex flex-col items-center" ref={resultView}>
         {showData ? (
           loading ? (
             <Loader />
