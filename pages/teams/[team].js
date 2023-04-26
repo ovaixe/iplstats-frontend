@@ -32,13 +32,13 @@ export default function TeamPage(props) {
               <img src={team.logo} className="rounded-lg"></img>
             </div>
             <div className="w-[50%]">
-              <div className="text-white text-lg lg:text-3xl font-bold p-5">
+              <div className="text-white text-sm lg:text-3xl font-bold p-3">
                 {team.name}
               </div>
               {winningSeasons.length ? (
                 <div className="flex flex-row items-center pl-4">
-                  <img src="https://www.iplt20.com/assets/images/team-trophy.png"></img>
-                  <div className="w-auto h-auto bg-[#11295C] rounded-r-3xl text-[#EAB305] text-sm font-bold p-3">
+                  <img src="https://www.iplt20.com/assets/images/team-trophy.png" className="w-10 h-10"></img>
+                  <div className="w-auto h-auto bg-[#11295C] rounded-r-3xl text-[#EAB305] text-sm font-bold p-2">
                     {winningSeasons.map((season, index, array) =>
                       index < array.length - 1 ? season + ", " : season
                     )}
@@ -52,21 +52,21 @@ export default function TeamPage(props) {
           <div className="h-90 w-1 bg-gray-500 rounded-2xl"></div>
           <div className="w-[100%] lg:w-[50%] flex justify-around items-center">
             <div className="lg:w-[80%] h-auto bg-[#11295C] rounded-2xl">
-              <div className="text-lg text-white font-bold p-5">
+              <div className="text-sm lg:text-lg text-white font-bold p-5">
                 <span className="text-lg text-yellow-500 font-bold">
                   OWNER -{" "}
                 </span>
                 {team.owner}
               </div>
               <div className="w-full h-1 lg:h-2 bg-[#031A45]"></div>
-              <div className="text-lg text-white font-bold p-5">
+              <div className="text-sm lg:text-lg text-white font-bold p-5">
                 <span className="text-lg text-yellow-500 font-bold">
                   COACH -{" "}
                 </span>
                 {team.coach}
               </div>
               <div className="w-full h-1 lg:h-2 bg-[#031A45]"></div>
-              <div className="text-lg text-white font-bold p-5">
+              <div className="text-sm lg:text-lg text-white font-bold p-5">
                 <span className="text-lg text-yellow-500 font-bold">
                   CAPTAIN -{" "}
                 </span>

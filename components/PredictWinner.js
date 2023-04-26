@@ -41,7 +41,7 @@ export default function PredictMatchWinner(props) {
   const [bowlingTeam, setBowlingTeam] = useState(null);
   const [city, setCity] = useState(null);
   const [currentScore, setCurrentScore] = useState(null);
-  const [ballsLeft, setBallsLeft] = useState(null);
+  const [overs, setOvers] = useState(null);
   const [wickets, setWickets] = useState(null);
   const [target, setTarget] = useState(null);
   const [predictButton, setPredictButton] = useState(false);
@@ -60,8 +60,8 @@ export default function PredictMatchWinner(props) {
       city !== "Choose a city" &&
       currentScore &&
       currentScore !== "" &&
-      ballsLeft &&
-      ballsLeft !== "" &&
+      overs &&
+      overs !== "" &&
       wickets &&
       wickets !== "" &&
       target &&
@@ -76,7 +76,7 @@ export default function PredictMatchWinner(props) {
     bowlingTeam,
     city,
     currentScore,
-    ballsLeft,
+    overs,
     wickets,
     target,
   ]);
@@ -89,10 +89,10 @@ export default function PredictMatchWinner(props) {
         batting_team: battingTeam,
         bowling_team: bowlingTeam,
         city: city,
-        current_score: +currentScore,
-        balls_left: +ballsLeft,
-        wickets: +wickets,
-        target: +target,
+        current_score: currentScore,
+        overs: overs,
+        wickets: wickets,
+        target: target,
       };
 
       const response = await axios.post(
@@ -249,17 +249,17 @@ export default function PredictMatchWinner(props) {
             </div>
             <div>
               <label
-                htmlFor="balls_left"
+                htmlFor="overs"
                 className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
               >
-                Balls Left
+                Overs
               </label>
               <input
                 type="number"
-                id="balls_left"
-                onChange={(e) => setBallsLeft(e.target.value)}
+                id="overs"
+                onChange={(e) => setOvers(e.target.value)}
                 className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                placeholder="Enter balls left"
+                placeholder="Enter Overs"
                 required
               />
             </div>
