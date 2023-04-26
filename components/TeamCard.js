@@ -9,10 +9,10 @@ export default function TeamCard({ team }) {
         alt="Sunset in the mountains"
       />
       <div className="flex flex-col items-center">
-        <div className="px-6 py-4">
+        <div className="px-3 py-4">
           <div className="text-white font-bold text-xl mb-2">{team.name}</div>
         </div>
-        <div className="px-6 pt-4 pb-2">
+        <div className="px-3 pt-4 pb-2">
           {winningSeasons.map((season, index) => (
             <span
               key={index}
