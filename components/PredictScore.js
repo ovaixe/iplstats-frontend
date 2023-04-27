@@ -3,6 +3,9 @@ import config from "../config/config.json";
 import axios from "axios";
 import Loader from "./Loader";
 import Error from "./Error";
+import SelectBattingTeam from "./SelectBattingTeam";
+import SelectBowlingTeam from "./SelectBowlingTeam";
+import ScoreResult from "./ScoreResult";
 
 export default function PredictScore(props) {
   const teams = [
@@ -100,91 +103,17 @@ export default function PredictScore(props) {
         Predict The Score
       </div>
       <div className="w-full h-auto flex flex-col items-center p-5 pt-20 space-y-10 lg:flex-row lg:space-y-0 lg:justify-between lg:items-center">
-        <div className="w-[90%] h-[50%] lg:mx-10 p-3 pt-0 bg-gradient-to-r from-blue-300 via-blue-400 to-blue-500 rounded-3xl flex flex-col items-center lg:w-[40%]">
-          <div className="w-[70%] h-10 lg:w-[50%] lg:h-16 bg-gradient-to-r from-amber-300 via-amber-400 to-amber-500 rounded-b-3xl flex items-center justify-center">
-            <h1 className="text-sm text-white font-bold lg:text-lg lg:font-extrabold">
-              Batting Team
-            </h1>
-          </div>
-          {battingTeam && battingTeam !== "Choose a team" ? (
-            <img
-              src={`teams/${battingTeam}.png`}
-              className="w-30 h-30 lg:w-68 lg:h-48 rounded-3xl mt-5"
-            ></img>
-          ) : (
-            <></>
-          )}
-          <div className="text-lg text-[#f9de84] p-3 lg:text-3xl lg:font-bold">
-            {battingTeam}
-          </div>
-          <div className="w-full lg:flex lg:flex-row lg:justify-betwee lg:items-center">
-            <label
-              htmlFor="batting-teams"
-              className="block mb-2 text-sm font-medium text-white lg:font-bold lg:w-[30%]"
-            >
-              Select Batting Team
-            </label>
-            <select
-              id="batting-teams"
-              onChange={(e) => setBattingTeam(e.target.value)}
-              className="border text-sm rounded-lg block w-full p-2.5 bg-gray-700 border-gray-600 placeholder-gray-400 text-white focus:ring-blue-500 focus:border-blue-500 lg:w-[70%]"
-            >
-              <option defaultValue>Choose a team</option>
-              {teams.map((team, index) => (
-                <option
-                  key={index}
-                  disabled={bowlingTeam === team}
-                  value={team}
-                >
-                  {team}
-                </option>
-              ))}
-            </select>
-          </div>
-        </div>
+        <SelectBattingTeam
+          battingTeam={battingTeam}
+          bowlingTeam={bowlingTeam}
+          setBattingTeam={setBattingTeam}
+        />
         <div className="lg:w-1 lg:h-96 lg:bg-[#93a3fa] lg:rounded-lg"></div>
-        <div className="w-[90%] h-[50%] lg:mx-10 p-5 pt-0 bg-gradient-to-r from-blue-300 via-blue-400 to-blue-500 rounded-3xl flex flex-col items-center lg:w-[40%]">
-          <div className="w-[70%] h-10 lg:w-[50%] lg:h-16 bg-gradient-to-r from-amber-300 via-amber-400 to-amber-500 rounded-b-3xl flex items-center justify-center">
-            <h1 className="text-sm text-white font-bold lg:text-lg lg:font-extrabold">
-              Bowling Team
-            </h1>
-          </div>
-          {bowlingTeam && bowlingTeam !== "Choose a team" ? (
-            <img
-              src={`teams/${bowlingTeam}.png`}
-              className="w-30 h-30 lg:w-68 lg:h-48 rounded-3xl mt-5"
-            ></img>
-          ) : (
-            <></>
-          )}
-          <div className="text-lg text-[#f9de84] p-3 lg:text-3xl lg:font-bold">
-            {bowlingTeam}
-          </div>
-          <div className="w-full lg:flex lg:flex-row lg:justify-between lg:items-center">
-            <label
-              htmlFor="bowling-teams"
-              className="block mb-2 text-sm font-medium text-white lg:font-bold lg:w-[30%]"
-            >
-              Select Bowling Team
-            </label>
-            <select
-              id="bowling-teams"
-              onChange={(e) => setBowlingTeam(e.target.value)}
-              className="border text-sm rounded-lg block w-full p-2.5 bg-gray-700 border-gray-600 placeholder-gray-400 text-white focus:ring-blue-500 focus:border-blue-500 lg:w-[70%]"
-            >
-              <option defaultValue>Choose a team</option>
-              {teams.map((team, index) => (
-                <option
-                  key={index}
-                  disabled={battingTeam === team}
-                  value={team}
-                >
-                  {team}
-                </option>
-              ))}
-            </select>
-          </div>
-        </div>
+        <SelectBowlingTeam
+          battingTeam={battingTeam}
+          bowlingTeam={bowlingTeam}
+          setBowlingTeam={setBowlingTeam}
+        />
       </div>
       <div className="w-full h-auto flex justify-center">
         <form className="p-5 lg:p-20 lg:mx-20 w-[80%]">
@@ -278,7 +207,9 @@ export default function PredictScore(props) {
               disabled={!predictButton}
               onClick={handlePredictWinner}
               className={`text-white ${
-                !predictButton ? "bg-gray-500" : "bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 hover:bg-blue-800"
+                !predictButton
+                  ? "bg-gray-500"
+                  : "bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 hover:bg-blue-800"
               } focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-[70%] sm:w-auto px-5 py-2.5 text-center`}
             >
               Predict Score
@@ -290,14 +221,7 @@ export default function PredictScore(props) {
         {scoreLoader ? (
           <Loader />
         ) : showScore ? (
-          <div className="w-[70%] lg:w-[50%] h-[50%] lg:h-48 bg-gradient-to-r from-green-300 via-green-400 to-green-500 rounded-3xl p-5 pt-0 flex flex-col items-center justify-between">
-            <div className="w-full p-2 text-white text-xl font-bold rounded-b-3xl bg-gradient-to-r from-amber-300 via-amber-400 to-amber-500 flex items-center justify-center lg:text-3xl lg:font-extrabold">
-              Predicted Score
-            </div>
-            <div className="text-white text-xl font-bold bg-[#2d8014] py-2 px-5 border-2 rounded-xl lg:text-2xl">
-              {score}
-            </div>
-          </div>
+          <ScoreResult score={score} />
         ) : error ? (
           <Error />
         ) : (
