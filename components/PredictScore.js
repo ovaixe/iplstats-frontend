@@ -100,7 +100,7 @@ export default function PredictScore(props) {
         Predict The Score
       </div>
       <div className="w-full h-auto flex flex-col items-center p-5 pt-20 space-y-10 lg:flex-row lg:space-y-0 lg:justify-between lg:items-center">
-        <div className="w-[80%] h-[50%] lg:mx-10 p-5 pt-0 bg-gradient-to-r from-blue-300 via-blue-400 to-blue-500 rounded-3xl flex flex-col items-center lg:w-[40%]">
+        <div className="w-[90%] h-[50%] lg:mx-10 p-3 pt-0 bg-gradient-to-r from-blue-300 via-blue-400 to-blue-500 rounded-3xl flex flex-col items-center lg:w-[40%]">
           <div className="w-[70%] h-10 lg:w-[50%] lg:h-16 bg-gradient-to-r from-amber-300 via-amber-400 to-amber-500 rounded-b-3xl flex items-center justify-center">
             <h1 className="text-sm text-white font-bold lg:text-lg lg:font-extrabold">
               Batting Team
@@ -109,12 +109,12 @@ export default function PredictScore(props) {
           {battingTeam && battingTeam !== "Choose a team" ? (
             <img
               src={`teams/${battingTeam}.png`}
-              className="w-68 h-48 rounded-3xl mt-5"
+              className="w-30 h-30 lg:w-68 lg:h-48 rounded-3xl mt-5"
             ></img>
           ) : (
             <></>
           )}
-          <div className="text-lg text-white p-5 lg:text-3xl lg:font-bold">
+          <div className="text-lg text-[#f9de84] p-3 lg:text-3xl lg:font-bold">
             {battingTeam}
           </div>
           <div className="w-full lg:flex lg:flex-row lg:justify-betwee lg:items-center">
@@ -143,7 +143,7 @@ export default function PredictScore(props) {
           </div>
         </div>
         <div className="lg:w-1 lg:h-96 lg:bg-[#93a3fa] lg:rounded-lg"></div>
-        <div className="w-[80%] h-[50%] lg:mx-10 p-5 pt-0 bg-gradient-to-r from-blue-300 via-blue-400 to-blue-500 rounded-3xl flex flex-col items-center lg:w-[40%]">
+        <div className="w-[90%] h-[50%] lg:mx-10 p-5 pt-0 bg-gradient-to-r from-blue-300 via-blue-400 to-blue-500 rounded-3xl flex flex-col items-center lg:w-[40%]">
           <div className="w-[70%] h-10 lg:w-[50%] lg:h-16 bg-gradient-to-r from-amber-300 via-amber-400 to-amber-500 rounded-b-3xl flex items-center justify-center">
             <h1 className="text-sm text-white font-bold lg:text-lg lg:font-extrabold">
               Bowling Team
@@ -152,12 +152,12 @@ export default function PredictScore(props) {
           {bowlingTeam && bowlingTeam !== "Choose a team" ? (
             <img
               src={`teams/${bowlingTeam}.png`}
-              className="w-68 h-48 rounded-3xl mt-5"
+              className="w-30 h-30 lg:w-68 lg:h-48 rounded-3xl mt-5"
             ></img>
           ) : (
             <></>
           )}
-          <div className="text-lg text-white p-5 lg:text-3xl lg:font-bold">
+          <div className="text-lg text-[#f9de84] p-3 lg:text-3xl lg:font-bold">
             {bowlingTeam}
           </div>
           <div className="w-full lg:flex lg:flex-row lg:justify-between lg:items-center">
@@ -249,7 +249,7 @@ export default function PredictScore(props) {
                 id="wickets_in_prev_5"
                 onChange={(e) => setwicketsInPrev5(e.target.value)}
                 className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                placeholder="Enter wickets in last 5 overs"
+                placeholder="Enter wickets fallen in last 5 overs"
                 required
               />
             </div>
@@ -266,7 +266,7 @@ export default function PredictScore(props) {
               id="wickets"
               onChange={(e) => setWickets(e.target.value)}
               className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-              placeholder="Enter wickets"
+              placeholder="Enter total wickets fallen"
               pattern="[0-9]"
               required
             />
