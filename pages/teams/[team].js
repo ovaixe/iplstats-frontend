@@ -28,10 +28,10 @@ export default function TeamPage(props) {
       <div>
         <div className="w-full bg-[#031A45] flex flex-col lg:flex-row p-5 space-y-10">
           <div className="w-[100%] lg:w-[50%] flex flex-row items-center">
-            <div className="w-[50%]">
-              <img src={team.logo} className="rounded-lg"></img>
+            <div className="w-[40%]">
+              <img src={team.logo} className="rounded-lg w-full h-20" ></img>
             </div>
-            <div className="w-[50%]">
+            <div className="w-[60%]">
               <div className="text-white text-sm lg:text-3xl font-bold p-3">
                 {team.name}
               </div>
