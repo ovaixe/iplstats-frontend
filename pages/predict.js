@@ -10,19 +10,23 @@ export default function PredictPage(props) {
   const handlePredictWinner = () => {
     setPredictScore(false);
     setPredictWinner(true);
-    window.scrollTo({
-      top: view.current.offsetTop - 70,
-      behavior: "smooth",
-    });
+    setTimeout(() => {
+      window.scrollTo({
+        top: view.current.offsetTop - 70,
+        behavior: "smooth",
+      });
+    }, 200);
   };
 
   const handlePredictScore = () => {
     setPredictWinner(false);
     setPredictScore(true);
-    window.scrollTo({
-      top: view.current.offsetTop - 70,
-      behavior: "smooth",
-    });
+    setTimeout(() => {
+      window.scrollTo({
+        top: view.current.offsetTop - 70,
+        behavior: "smooth",
+      });
+    }, 200);
   };
 
   return (
