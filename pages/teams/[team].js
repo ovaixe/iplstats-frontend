@@ -29,7 +29,7 @@ export default function TeamPage(props) {
         <div className="w-full bg-[#031A45] flex flex-col lg:flex-row p-5 space-y-10">
           <div className="w-[100%] lg:w-[50%] flex flex-row items-center">
             <div className="w-[40%]">
-              <img src={team.logo} className="rounded-lg w-full h-20" ></img>
+              <img src={team.logo} className="rounded-lg w-full h-20 lg:h-48" ></img>
             </div>
             <div className="w-[60%]">
               <div className="text-white text-sm lg:text-3xl font-bold p-3">
