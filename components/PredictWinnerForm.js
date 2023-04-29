@@ -166,6 +166,7 @@ export default function PredictWinnerForm(props) {
           </label>
           <input
             type="number"
+            step=".1"
             id="overs"
             name="overs"
             className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
@@ -174,6 +175,10 @@ export default function PredictWinnerForm(props) {
             {...register("overs", {
               onChange: (e) => setOvers(e.target.value),
               required: "Please enter current overs",
+              pattern: {
+                value: /^([0-9]|1[0-9])(\.[0-5])?$/,
+                message: "Please enter the correct overs",
+              },
               min: {
                 value: 0,
                 message: "Please enter atleast 5 overs",
