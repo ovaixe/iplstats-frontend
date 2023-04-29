@@ -88,7 +88,10 @@ export default function PredictScoreForm(props) {
   };
 
   return (
-    <form className="p-5 lg:p-20 lg:mx-20 w-[80%]" onSubmit={handleSubmit(handlePredictScore)}>
+    <form
+      className="p-5 lg:p-20 lg:mx-20 w-[80%]"
+      onSubmit={handleSubmit(handlePredictScore)}
+    >
       <div className="grid gap-6 mb-6 md:grid-cols-2">
         <div>
           <label
@@ -101,12 +104,17 @@ export default function PredictScoreForm(props) {
             id="overs"
             name="overs"
             type="number"
+            step=".1"
             className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
             placeholder="Enter current overs"
             onWheel={(e) => e.target.blur()}
             {...register("overs", {
               onChange: (e) => setOvers(e.target.value),
               required: "Please enter current overs",
+              pattern: {
+                value: /^([0-9]|1[0-9])(\.[0-5])?$/,
+                message: "Please enter the correct overs",
+              },
               min: {
                 value: 5,
                 message: "Please enter atleast 5 overs",
@@ -175,8 +183,9 @@ export default function PredictScoreForm(props) {
               },
               max: {
                 value: currentScore,
-                message: 'Please enter correct score, it should be less than or equal to current score'
-              }
+                message:
+                  "Please enter correct score, it should be less than or equal to current score",
+              },
             })}
           />
           {errors?.runs_in_prev_5 && (
@@ -238,7 +247,8 @@ export default function PredictScoreForm(props) {
             required: "Please enter total wickets fallen",
             min: {
               value: wicketsInPrev5,
-              message: "Please enter correct wickets, it should be greater or equal to wickets in last 5 overs",
+              message:
+                "Please enter correct wickets, it should be greater or equal to wickets in last 5 overs",
             },
             max: {
               value: 9,
@@ -247,10 +257,10 @@ export default function PredictScoreForm(props) {
           })}
         />
         {errors?.wickets && (
-            <div className="text-sm text-red-400 p-2">
-              {errors.wickets.message}
-            </div>
-          )}
+          <div className="text-sm text-red-400 p-2">
+            {errors.wickets.message}
+          </div>
+        )}
       </div>
 
       <div className="w-full flex flex-row justify-center">
