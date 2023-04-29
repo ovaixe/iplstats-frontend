@@ -103,6 +103,7 @@ export default function PredictScoreForm(props) {
             type="number"
             className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
             placeholder="Enter current overs"
+            onWheel={(e) => e.target.blur()}
             {...register("overs", {
               onChange: (e) => setOvers(e.target.value),
               required: "Please enter current overs",
@@ -135,6 +136,7 @@ export default function PredictScoreForm(props) {
             name="current_score"
             className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
             placeholder="Enter current runs"
+            onWheel={(e) => e.target.blur()}
             {...register("current_score", {
               onChange: (e) => setCurrentScore(e.target.value),
               required: "Please enter current score",
@@ -163,6 +165,7 @@ export default function PredictScoreForm(props) {
             name="runs_in_prev_5"
             className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
             placeholder="Enter runs in last 5 overs"
+            onWheel={(e) => e.target.blur()}
             {...register("runs_in_prev_5", {
               onChange: (e) => setRunsInPrev5(e.target.value),
               required: "Please enter score in last 5 overs",
@@ -195,6 +198,7 @@ export default function PredictScoreForm(props) {
             name="wickets_in_prev_5"
             className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
             placeholder="Enter wickets fallen in last 5 overs"
+            onWheel={(e) => e.target.blur()}
             {...register("wickets_in_prev_5", {
               onChange: (e) => setwicketsInPrev5(e.target.value),
               required: "Please enter wickets fallen in last 5 overs",
@@ -228,7 +232,7 @@ export default function PredictScoreForm(props) {
           name="wickets"
           className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
           placeholder="Enter total wickets fallen"
-          pattern="[0-9]"
+          onWheel={(e) => e.target.blur()}
           {...register("wickets", {
             onChange: (e) => setWickets(e.target.value),
             required: "Please enter total wickets fallen",

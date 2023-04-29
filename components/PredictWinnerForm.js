@@ -141,6 +141,7 @@ export default function PredictWinnerForm(props) {
             name="current_score"
             className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
             placeholder="Enter current runs"
+            onWheel={(e) => e.target.blur()}
             {...register("current_score", {
               onChange: (e) => setCurrentScore(e.target.value),
               required: "Please enter current score",
@@ -169,6 +170,7 @@ export default function PredictWinnerForm(props) {
             name="overs"
             className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
             placeholder="Enter Overs"
+            onWheel={(e) => e.target.blur()}
             {...register("overs", {
               onChange: (e) => setOvers(e.target.value),
               required: "Please enter current overs",
@@ -201,7 +203,7 @@ export default function PredictWinnerForm(props) {
             name="wickets"
             className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
             placeholder="Enter wickets fallen"
-            pattern="[1-10]"
+            onWheel={(e) => e.target.blur()}
             {...register("wickets", {
               onChange: (e) => setWickets(e.target.value),
               required: "Please enter current wickets",
@@ -235,6 +237,7 @@ export default function PredictWinnerForm(props) {
           name="target"
           className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
           placeholder="Enter target"
+          onWheel={(e) => e.target.blur()}
           {...register("target", {
             onChange: (e) => setTarget(e.target.value),
             required: "Please enter target",
