@@ -247,8 +247,8 @@ export default function PredictWinnerForm(props) {
             onChange: (e) => setTarget(e.target.value),
             required: "Please enter target",
             min: {
-              value: 1,
-              message: "Please enter atleast 1 runs",
+              value: currentScore,
+              message: "Please enter correct target, it should be greater than current score",
             },
           })}
         />
