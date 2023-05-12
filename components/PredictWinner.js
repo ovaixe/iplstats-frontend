@@ -4,7 +4,7 @@ import Error from "./Error";
 import SelectBattingTeam from "./SelectBattingTeam";
 import SelectBowlingTeam from "./SelectBowlingTeam";
 import PredictWinnerForm from "./PredictWinnerForm";
-import WinnerResult from "./WinnerResult";
+import { WinningProbability } from "./WinnerResult";
 
 export default function PredictMatchWinner(props) {
   const [battingTeam, setBattingTeam] = useState(null);
@@ -33,13 +33,24 @@ export default function PredictMatchWinner(props) {
         />
       </div>
       <div className="w-full h-auto flex justify-center">
-        <PredictWinnerForm battingTeam={battingTeam} bowlingTeam={bowlingTeam} setWinner={setWinner} setError={setError} setShowWinner={setShowWinner} setWinnerLoader={setWinnerLoader} />
+        <PredictWinnerForm
+          battingTeam={battingTeam}
+          bowlingTeam={bowlingTeam}
+          setWinner={setWinner}
+          setError={setError}
+          setShowWinner={setShowWinner}
+          setWinnerLoader={setWinnerLoader}
+        />
       </div>
       <div className="w-full h-[500px] p-5 flex flex-col items-center justify-center lg:p-10">
         {winnerLoader ? (
           <Loader />
         ) : showWinner ? (
-          <WinnerResult winner={winner} />
+          <WinningProbability
+            winner={winner}
+            battingTeam={battingTeam}
+            bowlingTeam={bowlingTeam}
+          />
         ) : error ? (
           <Error />
         ) : (
