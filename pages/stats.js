@@ -84,25 +84,23 @@ export default function StatsPage(props) {
 
   return (
     <div className="p-10 flex flex-col space-y-10">
-      <div className="flex flex-row items-center justify-center">
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-10">
         <img
           src="stats/played_each_season.png"
-          className="w-full h-96 lg:w-[80%] lg:h-[500px] rounded-2xl"
+          className="w-full h-60 lg:h-[400px] rounded-2xl"
         ></img>
-      </div>
-      <div className="flex flex-row items-center justify-center">
         <img
           src="stats/won_by_team.png"
-          className="w-full h-96 lg:w-[80%] lg:h-[500px] rounded-2xl"
+          className="w-full h-60 lg:h-[400px] rounded-2xl"
         ></img>
-      </div>
-      <div className="flex flex-row items-center justify-center">
         <img
           src="stats/won_season_wise.png"
-          className="w-full h-96 lg:w-[80%] lg:h-[500px] rounded-2xl"
+          className="w-full h-60 lg:h-[400px] rounded-2xl"
         ></img>
       </div>
-      <div className="text-[#EAB305] text-lg lg:text-3xl font-black flex justify-center">Get More Stats</div>
+      <div className="text-[#EAB305] text-lg lg:text-3xl font-black flex justify-center">
+        Get More Stats
+      </div>
       <div className="flex flex-col lg:flex-row justify-between items-center space-y-10 lg:space-y-0">
         <div className="w-[80%] lg:w-[20%] flex flex-col space-y-2 items-center">
           <label className="block text-lg font-medium text-white lg:font-bold">
