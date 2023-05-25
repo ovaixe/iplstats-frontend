@@ -111,7 +111,7 @@ export default function StatsPage(props) {
           <img
           key={index}
             src={image}
-            className="w-full h-60 lg:h-[400px] rounded-2xl"
+            className="w-full h-auto lg:h-[400px] rounded-xl object-contain bg-white"
           ></img>
         ))}
       </div>
