@@ -44,6 +44,28 @@ export default function StatsPage(props) {
     { name: "Most Centuries", value: "most-centuries" },
   ];
 
+  const images = [
+    "stats/1.png",
+    "stats/2.png",
+    "stats/3.png",
+    "stats/4.png",
+    "stats/5.png",
+    "stats/6.png",
+    "stats/7.png",
+    "stats/8.png",
+    "stats/9.png",
+    "stats/10.png",
+    "stats/11.png",
+    "stats/12.png",
+    "stats/13.png",
+    "stats/14.png",
+    "stats/15.png",
+    "stats/16.png",
+    "stats/17.png",
+    "stats/18.png",
+    "stats/19.png",
+  ];
+
   const resultView = useRef(null);
   const [filter, setFilter] = useState(null);
   const [season, setSeason] = useState("alltime");
@@ -85,18 +107,13 @@ export default function StatsPage(props) {
   return (
     <div className="p-10 flex flex-col space-y-10">
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-10">
-        <img
-          src="stats/played_each_season.png"
-          className="w-full h-60 lg:h-[400px] rounded-2xl"
-        ></img>
-        <img
-          src="stats/won_by_team.png"
-          className="w-full h-60 lg:h-[400px] rounded-2xl"
-        ></img>
-        <img
-          src="stats/won_season_wise.png"
-          className="w-full h-60 lg:h-[400px] rounded-2xl"
-        ></img>
+        {images.map((image, index) => (
+          <img
+          key={index}
+            src={image}
+            className="w-full h-60 lg:h-[400px] rounded-2xl"
+          ></img>
+        ))}
       </div>
       <div className="text-[#EAB305] text-lg lg:text-3xl font-black flex justify-center">
         Get More Stats
