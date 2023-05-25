@@ -105,7 +105,7 @@ export default function StatsPage(props) {
   };
 
   return (
-    <div className="p-10 flex flex-col space-y-10">
+    <div className="py-10 px-3 lg:px-10 flex flex-col space-y-10">
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-10">
         {images.map((image, index) => (
           <img
